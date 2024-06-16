@@ -5,7 +5,7 @@ services:
       EULA: "true"
       TYPE: "AUTO_CURSEFOGE"
       CF_API_KEY: $$2a$$10$$NN/M1Nj3OCK5vzHjnWL4sezaKqhaqRIQEBe5EHPBEnwC3rixS7zTK
-      CF_PAGE_URL: https://www.curseforge.com/minecraft/modpacks/cave-horror-project/files/all?page=1&pageSize=20
+      CF_PAGE_URL: https://www.curseforge.com/minecraft/modpacks/cave-horror-project
     ports:
       - "25565:36085"
     volumes:
