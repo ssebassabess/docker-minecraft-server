@@ -8,7 +8,7 @@ services:
     ports:
       - "36090:25565"
     volumes:
-      - datamine:/data
+      - datamines:/data
     stdin_open: true
     tty: true
     restart: unless-stopped
