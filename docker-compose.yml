@@ -5,7 +5,6 @@ services:
       EULA: "true"
       TYPE: "AUTO_CURSEFOGE"
       CF_API_KEY: $$2a$$10$$NN/M1Nj3OCK5vzHjnWL4sezaKqhaqRIQEBe5EHPBEnwC3rixS7zTK
-      CF_PAGE_URL:https: //www.curseforge.com/minecraft/modpacks/spore
     ports:
       - "36087:25565"
     volumes:
