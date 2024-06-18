@@ -6,7 +6,7 @@ services:
       TYPE: "AUTO_CURSEFOGE"
       CF_API_KEY: $$2a$$10$$NN/M1Nj3OCK5vzHjnWL4sezaKqhaqRIQEBe5EHPBEnwC3rixS7zTK
     ports:
-      - "36087:25565"
+      - "36090:25565"
     volumes:
       - datamine:/data
     stdin_open: true
