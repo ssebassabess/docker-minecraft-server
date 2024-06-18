@@ -9,7 +9,7 @@ services:
     ports:
       - "36086:25565"
     volumes:
-      - dataMinecraft:/data
+      - datamine:/data
     stdin_open: true
     tty: true
     restart: unless-stopped
