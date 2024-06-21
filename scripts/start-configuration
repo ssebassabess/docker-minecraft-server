@@ -31,7 +31,7 @@ isDebugging && set -x
 #umask 002
 export HOME=/data
 
-log "Running as uid=$(id -u) gid=$(id -g) with /data as '$(ls -lnd /data)'"
+log "corriendo en uid=$(id -u) gid=$(id -g) with /data as '$(ls -lnd /data)'"
     # Mensaje informativo antes de la descarga
 log "Descargando mods desde https://jgalqq.sn.files.1drv.com/y4mM7ejJYUqZDr9eJve3Y4TQvLi5DrxCkakIpJjF-5Pt9HK28ZyGFI-AQN84Zh2K0pxbuOeVn2Sio-k0p23NpBBiGLI-we-m685AwG_ffxw18liTUgASyxTNnKStRB-d1BM-uTwMSJ6GbqTiGpY1ZnSydN-mjS4QAoJZNjs3PB4HOYyRTZRhCcIuc76VuZs0PZqG-C7iyYFHn4117DZqpgE2w..."
 
