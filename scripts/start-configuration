@@ -32,12 +32,11 @@ isDebugging && set -x
 export HOME=/data
 
 log "Running as uid=$(id -u) gid=$(id -g) with /data as '$(ls -lnd /data)'"
-  downloadMods() {
     # Mensaje informativo antes de la descarga
-    log "Descargando mods desde https://jgalqq.sn.files.1drv.com/y4mM7ejJYUqZDr9eJve3Y4TQvLi5DrxCkakIpJjF-5Pt9HK28ZyGFI-AQN84Zh2K0pxbuOeVn2Sio-k0p23NpBBiGLI-we-m685AwG_ffxw18liTUgASyxTNnKStRB-d1BM-uTwMSJ6GbqTiGpY1ZnSydN-mjS4QAoJZNjs3PB4HOYyRTZRhCcIuc76VuZs0PZqG-C7iyYFHn4117DZqpgE2w..."
+log "Descargando mods desde https://jgalqq.sn.files.1drv.com/y4mM7ejJYUqZDr9eJve3Y4TQvLi5DrxCkakIpJjF-5Pt9HK28ZyGFI-AQN84Zh2K0pxbuOeVn2Sio-k0p23NpBBiGLI-we-m685AwG_ffxw18liTUgASyxTNnKStRB-d1BM-uTwMSJ6GbqTiGpY1ZnSydN-mjS4QAoJZNjs3PB4HOYyRTZRhCcIuc76VuZs0PZqG-C7iyYFHn4117DZqpgE2w..."
 
     # Descarga del archivo ZIP de mods
-    wget -q -O /tmp/mods.zip https://jgalqq.sn.files.1drv.com/y4mM7ejJYUqZDr9eJve3Y4TQvLi5DrxCkakIpJjF-5Pt9HK28ZyGFI-AQN84Zh2K0pxbuOeVn2Sio-k0p23NpBBiGLI-we-m685AwG_ffxw18liTUgASyxTNnKStRB-d1BM-uTwMSJ6GbqTiGpY1ZnSydN-mjS4QAoJZNjs3PB4HOYyRTZRhCcIuc76VuZs0PZqG-C7iyYFHn4117DZqpgE2w
+wget -q -O /tmp/mods.zip https://jgalqq.sn.files.1drv.com/y4mM7ejJYUqZDr9eJve3Y4TQvLi5DrxCkakIpJjF-5Pt9HK28ZyGFI-AQN84Zh2K0pxbuOeVn2Sio-k0p23NpBBiGLI-we-m685AwG_ffxw18liTUgASyxTNnKStRB-d1BM-uTwMSJ6GbqTiGpY1ZnSydN-mjS4QAoJZNjs3PB4HOYyRTZRhCcIuc76VuZs0PZqG-C7iyYFHn4117DZqpgE2w
 
     # Verificación de éxito de la descarga
     if [ $? -eq 0 ]; then
@@ -60,8 +59,7 @@ log "Running as uid=$(id -u) gid=$(id -g) with /data as '$(ls -lnd /data)'"
       log "Error: Fallo en la descompresión de mods.zip"
       exit 1
     fi
-  }
-exec "${SCRIPTS:-/}downloadMods" "$@"
+
 if [ ! -e /data/eula.txt ]; then
   if ! isTrue "$EULA"; then
     log ""
