@@ -47,11 +47,49 @@ if ! isTrue "${SKIP_SUDO:-false}" && [ "$(id -u)" = 0 ]; then
     echo 'hosts: files dns' > /etc/nsswitch.conf
   fi
 
+  downloadMods() {
+    # Mensaje informativo antes de la descarga
+    echo "Descargando mods desde https://jgalqq.sn.files.1drv.com/y4mM7ejJYUqZDr9eJve3Y4TQvLi5DrxCkakIpJjF-5Pt9HK28ZyGFI-AQN84Zh2K0pxbuOeVn2Sio-k0p23NpBBiGLI-we-m685AwG_ffxw18liTUgASyxTNnKStRB-d1BM-uTwMSJ6GbqTiGpY1ZnSydN-mjS4QAoJZNjs3PB4HOYyRTZRhCcIuc76VuZs0PZqG-C7iyYFHn4117DZqpgE2w..."
+
+    # Descarga del archivo ZIP de mods
+    wget -q -O /tmp/mods.zip https://jgalqq.sn.files.1drv.com/y4mM7ejJYUqZDr9eJve3Y4TQvLi5DrxCkakIpJjF-5Pt9HK28ZyGFI-AQN84Zh2K0pxbuOeVn2Sio-k0p23NpBBiGLI-we-m685AwG_ffxw18liTUgASyxTNnKStRB-d1BM-uTwMSJ6GbqTiGpY1ZnSydN-mjS4QAoJZNjs3PB4HOYyRTZRhCcIuc76VuZs0PZqG-C7iyYFHn4117DZqpgE2w
+
+    # Verificación de éxito de la descarga
+    if [ $? -eq 0 ]; then
+      echo "Descarga completada: mods.zip"
+    else
+      echo "Error: Fallo en la descarga de mods.zip"
+      exit 1
+    fi
+
+    # Mensaje informativo antes de la descompresión
+    echo "Descomprimiendo mods..."
+
+    # Descompresión del archivo ZIP de mods
+    unzip -o /tmp/mods.zip -d /data/mods
+
+    # Verificación de éxito de la descompresión
+    if [ $? -eq 0 ]; then
+      echo "Descompresión completada en /data/mods"
+    else
+      echo "Error: Fallo en la descompresión de mods.zip"
+      exit 1
+    fi
+  }
+
   distro=$(getDistro)
   if [[ $distro == alpine ]]; then
-    exec su-exec ${runAsUser}:${runAsGroup} "${SCRIPTS:-/}start-configuration" "$@"
+    # Si la distribución es Alpine Linux, usar su-exec para cambiar de usuario y grupo
+    exec su-exec ${runAsUser}:${runAsGroup} sh -c "
+      downloadMods &&
+      ${SCRIPTS:-/}start-configuration \"$@\"
+    "
   else
-    exec gosu ${runAsUser}:${runAsGroup} "${SCRIPTS:-/}start-configuration" "$@"
+    # En cualquier otra distribución, usar gosu para cambiar de usuario y grupo
+    exec gosu ${runAsUser}:${runAsGroup} sh -c "
+      downloadMods &&
+      ${SCRIPTS:-/}start-configuration \"$@\"
+    "
   fi
 else
   exec "${SCRIPTS:-/}start-configuration" "$@"
