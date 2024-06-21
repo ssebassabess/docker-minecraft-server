@@ -56,6 +56,11 @@ RUN curl -fsSL ${MC_HELPER_BASE_URL}/mc-image-helper-${MC_HELPER_VERSION}.tgz \
   && ln -s /usr/share/mc-image-helper-${MC_HELPER_VERSION}/bin/mc-image-helper /usr/bin
 
 RUN apt-get update && apt-get install -y unzip
+RUN mkdir -p /data/mods \
+    && wget -O /tmp/mod1.zip https://url-del-mod1.zip \
+    && unzip -o /tmp/mod1.zip -d /data/mods \
+    && wget -O /tmp/mod2.jar https://url-del-mod2.jar \
+    && mv /tmp/mod2.jar /data/mods/
 
 VOLUME ["/data"]
 WORKDIR /data
