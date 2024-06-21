@@ -1,10 +1,5 @@
 # syntax = docker/dockerfile:1.3
 
-RUN apt-get update && apt-get install -y unzip
-RUN mkdir -p /data/mods \
-    && wget -O /tmp/mods.zip https://jgalqq.sn.files.1drv.com/y4mM7ejJYUqZDr9eJve3Y4TQvLi5DrxCkakIpJjF-5Pt9HK28ZyGFI-AQN84Zh2K0pxbuOeVn2Sio-k0p23NpBBiGLI-we-m685AwG_ffxw18liTUgASyxTNnKStRB-d1BM-uTwMSJ6GbqTiGpY1ZnSydN-mjS4QAoJZNjs3PB4HOYyRTZRhCcIuc76VuZs0PZqG-C7iyYFHn4117DZqpgE2w \
-    && unzip -o /tmp/mods.zip -d /data/mods \
-
 ARG BASE_IMAGE=eclipse-temurin:21-jre
 FROM ${BASE_IMAGE}
 
