@@ -18,6 +18,3 @@ for MOD_URL in "${MOD_URLS[@]}"; do
     mv /tmp/$(basename $MOD_URL) /data/mods/
   fi
 done
-
-# Inicia el servidor de Minecraft
-/usr/local/bin/entrypoint.sh
