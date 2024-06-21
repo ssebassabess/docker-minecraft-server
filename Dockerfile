@@ -55,6 +55,8 @@ RUN curl -fsSL ${MC_HELPER_BASE_URL}/mc-image-helper-${MC_HELPER_VERSION}.tgz \
   | tar -C /usr/share -zxf - \
   && ln -s /usr/share/mc-image-helper-${MC_HELPER_VERSION}/bin/mc-image-helper /usr/bin
 
+RUN apt-get update && apt-get install -y unzip
+
 VOLUME ["/data"]
 WORKDIR /data
 
@@ -73,5 +75,9 @@ RUN curl -fsSL -o /image/Log4jPatcher.jar https://github.com/CreeperHost/Log4jPa
 
 RUN dos2unix /start* /auto/*
 
-ENTRYPOINT [ "/start" ]
+# Copia el script de inicio personalizado
+COPY --chmod=755 start-minecraft.sh /start-minecraft.sh
+
+ENTRYPOINT [ "/start-minecraft.sh" ]
 HEALTHCHECK --start-period=1m --interval=5s --retries=24 CMD mc-health
+
