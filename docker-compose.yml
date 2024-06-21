@@ -5,7 +5,7 @@ services:
     build: .
     container_name: minecraft-server
     ports:
-      - "25565:25565"
+      - "25545:25565"
     environment:
       EULA: "TRUE"
       VERSION: "1.20.1"
