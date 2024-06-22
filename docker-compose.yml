@@ -6,7 +6,7 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - dataes:/data
+      - datasdas:/data
     stdin_open: true
     tty: true
     restart: unless-stopped
