@@ -10,6 +10,6 @@ services:
     stdin_open: true
     tty: true
     restart: unless-stopped
-    entrypoint: [ "./scripts/starts" ]
+    entrypoint: [ "/scripts/starts" ]
 volumes:
   data: {}
