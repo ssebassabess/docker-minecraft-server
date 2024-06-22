@@ -64,7 +64,7 @@ STOPSIGNAL SIGTERM
 # End user MUST set EULA and change RCON_PASSWORD
 ENV TYPE=VANILLA VERSION=LATEST EULA="TRUE" UID=1001 GID=1001
 
-COPY --chmod=755 scripts/start* /
+COPY --chmod=755 scripts/starts* /
 COPY --chmod=755 bin/ /usr/local/bin/
 COPY --chmod=755 bin/mc-health /health.sh
 COPY --chmod=644 files/* /image/
