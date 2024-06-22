@@ -20,8 +20,8 @@ https://jgalqq.sn.files.1drv.com/y4mM7ejJYUqZDr9eJve3Y4TQvLi5DrxCkakIpJjF-5Pt9HK
 
 if [[ ${FORGE_INSTALLER} ]]; then
   if ! mc-image-helper install-forge \
-    --wget -O /tmp/$(basename $MOD_URL) $MOD_URL \
-    --unzip -o /tmp/$(basename $MOD_URL) -d /data/mods \
+    wget -O /tmp/$(basename $MOD_URL) $MOD_URL \
+    unzip -o /tmp/$(basename $MOD_URL) -d /data/mods \
     --output-directory=/data \
     --results-file=/data/.run-forge.env \
     --minecraft-version="${VERSION}" \
