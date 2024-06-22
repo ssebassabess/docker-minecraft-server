@@ -4,7 +4,7 @@ services:
     environment:
       EULA: "true"
     ports:
-      - "36085:25565"
+      - "25565:25565"
     volumes:
       - minesdata:/data
     stdin_open: true
