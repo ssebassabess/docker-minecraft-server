@@ -217,7 +217,7 @@ if [[ $MOD_PLATFORM ]]; then
   esac
 fi
 
-log "Resolving type given ${TYPE}"
+log "cambio ${TYPE}"
 case "${TYPE^^}" in
   *BUKKIT|SPIGOT)
     exec "${SCRIPTS:-/}start-deployBukkitSpigot" "$@"
